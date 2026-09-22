@@ -1,548 +1,352 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Market King365 — No. 1 Frozen Food Store in Benin City</title>
-<meta name="description" content="Market King365: fresh-frozen chicken, beef, fish, turkey and seafood, delivered across Benin City. Order by call or WhatsApp.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --forest:#0E4A31;
-    --forest-light:#1C7A4C;
-    --ember:#E2661C;
-    --ember-light:#F4903D;
-    --cream:#FBF6EC;
-    --ink:#1A1A16;
-    --frost:#EFF6F2;
-    --line: rgba(14,74,49,0.15);
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Work Sans', sans-serif;
-    font-size:16px;
-    line-height:1.55;
-  }
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    margin:0;
-    color:var(--forest);
-  }
-  p{margin:0;}
-  a{color:inherit;text-decoration:none;}
-  img,svg{display:block;max-width:100%;}
-  .wrap{
-    max-width:1120px;
-    margin:0 auto;
-    padding:0 28px;
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none!important; transition:none!important;}
-  }
-
-  /* ---------- Header ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(251,246,236,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 0;
-  }
-  .brand{display:flex; align-items:center; gap:10px;}
-  .brand-mark{width:38px; height:38px;}
-  .brand-name{font-family:'Fraunces', serif; font-weight:600; font-size:1.25rem; color:var(--forest); line-height:1;}
-  .brand-name span{color:var(--ember);}
-  .nav-links{display:flex; gap:32px; align-items:center;}
-  .nav-links a{font-size:0.95rem; font-weight:500; color:var(--ink); opacity:0.8;}
-  .nav-links a:hover{opacity:1;}
-  .nav-cta{
-    background:var(--forest); color:var(--cream)!important;
-    padding:10px 20px; border-radius:100px;
-    font-weight:600; font-size:0.9rem; opacity:1!important;
-  }
-  .nav-cta:hover{background:var(--forest-light);}
-  .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:6px;}
-  .menu-btn svg{width:26px; height:26px;}
-
-  @media (max-width:840px){
-    .nav-links{
-      position:absolute; top:100%; left:0; right:0;
-      background:var(--cream);
-      flex-direction:column; align-items:flex-start;
-      padding:20px 28px 28px; gap:18px;
-      border-bottom:1px solid var(--line);
-      display:none;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MarketKing365 — Benin City's 24/7 frozen food, poultry and seafood wholesaler and retailer. Order on WhatsApp, delivered across GRA, Airport Road and beyond." />
+  <title>MarketKing365 | Open 24/7 Frozen Food & Seafood — Benin City</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { navy:"#0F172A", ocean:"#0284C7", cyan:"#06B6D4", go:"#16A34A", gobright:"#22C55E", ice:"#F8FAFC" },
+          boxShadow: { soft:"0 16px 42px rgba(15,23,42,.13)" }
+        }
+      }
     }
-    .nav-links.open{display:flex;}
-    .nav-links .nav-cta{margin-top:6px;}
-    .menu-btn{display:block;}
-  }
-
-  /* ---------- Hero ---------- */
-  .hero{
-    position:relative;
-    padding:64px 0 0;
-    overflow:hidden;
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:40px;
-    align-items:center;
-    padding-bottom:70px;
-  }
-  .kicker{
-    display:inline-block;
-    font-size:0.95rem;
-    color:var(--ember);
-    font-weight:600;
-    margin-bottom:18px;
-  }
-  .hero h1{
-    font-size:clamp(2.4rem, 4.6vw, 3.6rem);
-    line-height:1.06;
-    letter-spacing:-0.01em;
-  }
-  .hero h1 em{
-    font-style:italic;
-    font-weight:500;
-    color:var(--ember);
-  }
-  .hero-sub{
-    margin-top:22px;
-    max-width:46ch;
-    font-size:1.08rem;
-    color:#3c3c34;
-  }
-  .hero-actions{
-    margin-top:32px;
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-  }
-  .btn{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:14px 26px;
-    border-radius:100px;
-    font-weight:600;
-    font-size:0.98rem;
-    border:1px solid transparent;
-    cursor:pointer;
-  }
-  .btn-primary{background:var(--ember); color:#fff;}
-  .btn-primary:hover{background:var(--ember-light);}
-  .btn-ghost{background:transparent; color:var(--forest); border-color:var(--forest);}
-  .btn-ghost:hover{background:var(--forest); color:#fff;}
-  .hero-note{
-    margin-top:26px;
-    font-size:0.88rem;
-    color:#5b5b4f;
-  }
-
-  /* hero illustration */
-  .hero-art{
-    position:relative;
-    aspect-ratio:1/1;
-    max-width:420px;
-    margin:0 auto;
-  }
-  .hero-art .ring{
-    position:absolute; inset:0;
-    border-radius:50%;
-    background:var(--frost);
-    border:1px solid var(--line);
-  }
-  .hero-art .item{position:absolute;}
-  .hero-art .lbl{
-    position:absolute;
-    background:var(--forest);
-    color:var(--cream);
-    font-size:0.72rem;
-    font-weight:600;
-    padding:5px 11px;
-    border-radius:100px;
-    white-space:nowrap;
-  }
-
-  /* Arch divider echoing the brand's own signage */
-  .arch-divider{
-    width:100%; height:64px; display:block;
-    margin-top:-2px;
-  }
-
-  /* ---------- Categories ---------- */
-  .categories{
-    background:var(--forest);
-    padding:56px 0 64px;
-  }
-  .categories h2{color:var(--cream); font-size:clamp(1.6rem,3vw,2.1rem); max-width:20ch;}
-  .cat-intro{
-    display:flex; justify-content:space-between; align-items:flex-end;
-    gap:24px; flex-wrap:wrap; margin-bottom:38px;
-  }
-  .cat-intro p{color:rgba(251,246,236,0.75); max-width:38ch; font-size:0.98rem;}
-  .tag-row{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
-    gap:18px;
-  }
-  .tag{
-    background:var(--cream);
-    border-radius:14px;
-    padding:20px 18px 22px;
-    position:relative;
-    transition:transform 0.18s ease;
-  }
-  .tag:nth-child(even){transform:translateY(14px);}
-  .tag:hover{transform:translateY(-4px);}
-  .tag:nth-child(even):hover{transform:translateY(10px);}
-  .tag .string{
-    position:absolute; top:-14px; left:50%;
-    width:1px; height:14px; background:rgba(251,246,236,0.5);
-  }
-  .tag svg{width:34px; height:34px; margin-bottom:14px; color:var(--ember);}
-  .tag h3{font-size:1.02rem; color:var(--forest);}
-  .tag p{font-size:0.85rem; color:#5b5b4f; margin-top:6px;}
-
-  /* ---------- Why us ---------- */
-  .why{padding:80px 0;}
-  .why-head{max-width:56ch; margin-bottom:48px;}
-  .why-head h2{font-size:clamp(1.7rem,3.2vw,2.3rem);}
-  .why-head p{margin-top:16px; color:#3c3c34; font-size:1.05rem;}
-  .why-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:0;
-    border-top:1px solid var(--line);
-  }
-  .why-item{
-    padding:28px 26px 28px 0;
-    border-right:1px solid var(--line);
-  }
-  .why-item:last-child{border-right:none;}
-  .why-item h3{font-size:1.08rem; margin-bottom:10px;}
-  .why-item p{font-size:0.92rem; color:#54544a;}
-  @media (max-width:760px){
-    .why-grid{grid-template-columns:1fr;}
-    .why-item{border-right:none; border-bottom:1px solid var(--line); padding:24px 0;}
-  }
-
-  /* ---------- Order / contact ---------- */
-  .order{
-    background:var(--frost);
-    padding:80px 0;
-  }
-  .order-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-  }
-  .order h2{font-size:clamp(1.6rem,3vw,2.1rem);}
-  .order-copy{margin-top:14px; color:#3c3c34; max-width:42ch;}
-  .contact-list{margin-top:32px; display:flex; flex-direction:column; gap:16px;}
-  .contact-list a{
-    display:flex; align-items:center; gap:12px;
-    font-weight:600; color:var(--forest); font-size:1.02rem;
-  }
-  .contact-list svg{width:20px; height:20px; color:var(--ember); flex-shrink:0;}
-
-  form{
-    background:var(--cream);
-    border-radius:18px;
-    padding:32px;
-    border:1px solid var(--line);
-  }
-  .field{margin-bottom:18px;}
-  .field label{
-    display:block; font-size:0.85rem; font-weight:600; margin-bottom:7px; color:var(--forest);
-  }
-  .field input, .field select, .field textarea{
-    width:100%; padding:12px 14px; border-radius:9px;
-    border:1px solid var(--line); background:#fff;
-    font-family:inherit; font-size:0.95rem; color:var(--ink);
-  }
-  .field textarea{resize:vertical; min-height:70px;}
-  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  .form-note{font-size:0.8rem; color:#6b6b5f; margin-top:14px;}
-
-  /* ---------- Footer ---------- */
-  footer{
-    background:var(--ink);
-    color:rgba(251,246,236,0.75);
-    padding:44px 0 28px;
-  }
-  .foot-grid{
-    display:flex; justify-content:space-between; align-items:center;
-    flex-wrap:wrap; gap:18px;
-    padding-bottom:24px;
-    border-bottom:1px solid rgba(251,246,236,0.15);
-  }
-  .foot-brand{display:flex; align-items:center; gap:10px;}
-  .foot-brand span{font-family:'Fraunces', serif; color:var(--cream); font-weight:600; font-size:1.1rem;}
-  .foot-links{display:flex; gap:26px; font-size:0.9rem;}
-  .foot-links a:hover{color:var(--cream);}
-  .foot-bottom{
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-    padding-top:20px; font-size:0.82rem;
-  }
-
-  /* Floating WhatsApp */
-  .wa-float{
-    position:fixed; right:22px; bottom:22px; z-index:60;
-    width:56px; height:56px; border-radius:50%;
-    background:#25D366; display:flex; align-items:center; justify-content:center;
-    box-shadow:0 8px 20px rgba(0,0,0,0.22);
-  }
-  .wa-float svg{width:28px; height:28px;}
-
-  @media (max-width:840px){
-    .hero-grid{grid-template-columns:1fr;}
-    .hero-art{margin-top:10px;}
-    .order-grid{grid-template-columns:1fr;}
-    .field-row{grid-template-columns:1fr;}
-  }
-</style>
+  </script>
+  <style>
+    html { scroll-behavior:smooth }
+    .hero { background:radial-gradient(circle at 90% 10%,#06b6d455,transparent 25%),linear-gradient(135deg,#0F172A,#0284C7) }
+    .card { transition:.25s ease }
+    .card:hover { transform:translateY(-6px); box-shadow:0 20px 42px #0f172a20 }
+    .pulse-dot { animation: pulse-ring 1.8s cubic-bezier(0.4,0,0.6,1) infinite }
+    @keyframes pulse-ring { 0%,100% { opacity:1 } 50% { opacity:.4 } }
+    .stepper-btn { min-width:36px; min-height:36px }
+  </style>
 </head>
-<body>
 
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#top">
-      <svg class="brand-mark" viewBox="0 0 48 48" fill="none">
-        <rect x="3" y="3" width="42" height="42" rx="14" stroke="#0E4A31" stroke-width="3.4"/>
-        <path d="M13 20 L18 14 L24 19 L30 14 L35 20 L33 27 L15 27 Z" fill="#E2661C"/>
-        <path d="M17 30 Q24 36 31 30" stroke="#E2661C" stroke-width="3.4" fill="none" stroke-linecap="round"/>
-      </svg>
-      <span class="brand-name">Market <span>King</span>365</span>
-    </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#products">Products</a>
-      <a href="#why">Why us</a>
-      <a href="#order">Order</a>
-      <a class="nav-cta" href="https://wa.me/2348082078462" target="_blank" rel="noopener">Order on WhatsApp</a>
+<body class="bg-slate-50 text-slate-700">
+  <header class="sticky top-0 z-50 border-b bg-white/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+      <a href="#home" class="flex items-center gap-2 text-xl font-black text-navy">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-navy text-lg text-white">❄</span>
+        MarketKing<span class="text-ocean">365</span>
+      </a>
+
+      <nav class="hidden gap-7 text-sm font-bold lg:flex">
+        <a href="#home">Home</a><a href="#products">Catalog</a><a href="#wholesale">Wholesale</a>
+        <a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <span class="hidden items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-bold text-go sm:flex">
+          <span class="pulse-dot h-2 w-2 rounded-full bg-go"></span> Open 24/7 • GRA Benin City
+        </span>
+        <a class="hidden rounded-lg bg-navy px-3 py-2 text-sm font-bold text-white sm:inline-block" href="tel:08082078462">📞 Call</a>
+        <a class="rounded-lg bg-[#25D366] px-3 py-2 text-sm font-bold text-white sm:px-4"
+          target="_blank" rel="noopener"
+          href="https://wa.me/2348082078462?text=Hello%20MarketKing365%2C%20I%20would%20like%20to%20place%20an%20order">
+          WhatsApp
+        </a>
+        <button id="cartBtn" class="relative rounded-lg border border-slate-200 p-2 text-lg font-bold text-navy" aria-label="View order">
+          🛒<span id="cartCount" class="absolute -right-1.5 -top-1.5 hidden h-5 w-5 place-items-center rounded-full bg-ocean text-[11px] font-black text-white">0</span>
+        </button>
+      </div>
+
+      <button id="menuBtn" class="rounded-lg p-2 text-2xl text-navy lg:hidden" aria-label="Open menu">☰</button>
+    </div>
+
+    <nav id="mobileMenu" class="hidden border-t bg-white px-4 py-4 lg:hidden">
+      <div class="flex flex-col gap-3 font-bold">
+        <a href="#home">Home</a><a href="#products">Catalog</a><a href="#wholesale">Wholesale</a>
+        <a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+      </div>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#0E4A31" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-  </div>
-</header>
 
-<main id="top">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="kicker">Benin City's frozen food store</span>
-        <h1>Your freezer, <em>fully stocked</em>, every single week.</h1>
-        <p class="hero-sub">Chicken, beef, goat meat, turkey, fish and seafood — cut, packed and delivered fresh-frozen across Benin City. No queues, no guesswork, just call or chat and it's on its way.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://wa.me/2348082078462" target="_blank" rel="noopener">Order on WhatsApp</a>
-          <a class="btn btn-ghost" href="tel:+2348082078462">Call 080-8207-8462</a>
-        </div>
-        <p class="hero-note">Open every day · Same-week delivery across Benin City</p>
-      </div>
-
-      <div class="hero-art" aria-hidden="true">
-        <div class="ring"></div>
-        <!-- fish -->
-        <div class="item" style="top:8%; left:6%; width:42%;">
-          <svg viewBox="0 0 100 60" fill="none"><path d="M10 30c10-16 40-20 60-8 8 5 15 5 20 0-3 10-3 14 0 24-5-5-12-5-20 0-20 12-50 8-60-8z" fill="#7FA79A"/><circle cx="24" cy="27" r="2.4" fill="#0E4A31"/></svg>
-        </div>
-        <!-- shrimp -->
-        <div class="item" style="top:12%; right:8%; width:26%;">
-          <svg viewBox="0 0 60 60" fill="none"><path d="M12 46c0-20 10-34 26-36 4 12-2 20-10 24 8-1 14 3 16 10-10 6-24 6-32 2z" fill="#E2661C"/></svg>
-        </div>
-        <!-- drumstick -->
-        <div class="item" style="bottom:10%; left:10%; width:34%;">
-          <svg viewBox="0 0 80 80" fill="none"><path d="M46 10c14 4 22 16 18 30-3 10-10 12-14 20-4 8-2 14-10 16-6 2-12-4-10-10 2-6 8-8 10-16-10 0-20-8-20-20 0-14 14-22 26-20z" fill="#C9A24B"/><rect x="52" y="52" width="8" height="20" rx="4" transform="rotate(28 52 52)" fill="#F1E6C8"/></svg>
-        </div>
-        <!-- beef cut -->
-        <div class="item" style="bottom:14%; right:6%; width:32%;">
-          <svg viewBox="0 0 80 60" fill="none"><ellipse cx="40" cy="32" rx="34" ry="22" fill="#B4433A"/><ellipse cx="40" cy="32" rx="34" ry="22" fill="none" stroke="#F1E6C8" stroke-width="3" stroke-dasharray="6 5"/></svg>
-        </div>
-        <span class="lbl" style="top:2%; left:38%;">Fresh-frozen</span>
-        <span class="lbl" style="bottom:2%; left:34%;">Cut to order</span>
+    <!-- Sticky order bar -->
+    <div id="orderBar" class="hidden border-t bg-navy px-4 py-3 text-white">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 sm:px-6">
+        <p class="text-sm font-bold"><span id="orderBarCount">0</span> item(s) · <span id="orderBarTotal">₦0</span></p>
+        <button id="checkoutBtn" class="rounded-lg bg-[#25D366] px-4 py-2 text-sm font-bold">Checkout via WhatsApp →</button>
       </div>
     </div>
+  </header>
 
-    <svg class="arch-divider" viewBox="0 0 1200 64" preserveAspectRatio="none">
-      <path d="M0 64 L0 40 Q600 -30 1200 40 L1200 64 Z" fill="#0E4A31"/>
-    </svg>
-  </section>
+  <main>
+    <section id="home" class="hero overflow-hidden text-white">
+      <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-28">
+        <div>
+          <p class="mb-4 inline-block rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold">
+            ❄ Open 24 hours, 7 days a week
+          </p>
+          <h1 class="text-4xl font-black leading-tight sm:text-6xl">
+            Benin City's #1 source for farm-fresh frozen poultry, fish &amp; seafood — <span class="text-cyan-200">24/7.</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-lg text-slate-200">
+            Wholesale cartons and retail cuts delivered cold and fresh to your doorstep in GRA, Airport Road, and across Benin City. Zero defrosting compromises, everyday affordable rates.
+          </p>
 
-  <!-- CATEGORIES -->
-  <section class="categories" id="products">
-    <div class="wrap">
-      <div class="cat-intro">
-        <h2>Everything for the freezer, in one order.</h2>
-        <p>Pick a category and tell us the quantity — we'll confirm weight and price before anything is packed.</p>
-      </div>
-      <div class="tag-row">
-        <div class="tag"><span class="string"></span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c4 2 6 5 6 9a6 6 0 01-12 0c0-4 2-7 6-9z"/></svg>
-          <h3>Chicken</h3><p>Whole, laps &amp; wings</p>
-        </div>
-        <div class="tag"><span class="string"></span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="16" height="9" rx="3"/><path d="M8 8V6a4 4 0 018 0v2"/></svg>
-          <h3>Beef &amp; goat meat</h3><p>Assorted cuts</p>
-        </div>
-        <div class="tag"><span class="string"></span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c4-6 10-8 15-4 1 1 2 1 3 0-1 2-1 3 0 5-1-1-2-1-3 0-5 4-11 2-15-1z"/></svg>
-          <h3>Fish</h3><p>Croaker, titus &amp; more</p>
-        </div>
-        <div class="tag"><span class="string"></span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 18c0-7 3-12 9-13 1 4-1 7-4 8 3 0 5 2 5 5-4 2-8 2-10 0z"/></svg>
-          <h3>Shrimp &amp; seafood</h3><p>Prawns, crab, snail</p>
-        </div>
-        <div class="tag"><span class="string"></span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="12" rx="8" ry="6"/><path d="M4 12h16"/></svg>
-          <h3>Turkey</h3><p>Full birds &amp; parts</p>
-        </div>
-        <div class="tag"><span class="string"></span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v16M6 8l12 8M18 8L6 16"/></svg>
-          <h3>Assorted &amp; offals</h3><p>Cow leg, tripe, gizzard</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY US -->
-  <section class="why" id="why">
-    <div class="wrap">
-      <div class="why-head">
-        <h2>Why Benin City orders from Market King365</h2>
-        <p>We built this store around the two things that matter most when you're buying frozen food: it has to still be cold when it reaches you, and it has to be worth the price.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-item">
-          <h3>Cold chain, kept cold</h3>
-          <p>Every order leaves our freezer in insulated packaging and gets to you the same day it's dispatched — no thawing in transit.</p>
-        </div>
-        <div class="why-item">
-          <h3>Priced for repeat orders</h3>
-          <p>Bulk and wholesale rates for families, restaurants and event caterers who order more than once a month.</p>
-        </div>
-        <div class="why-item">
-          <h3>You know what you're getting</h3>
-          <p>Weight and price are confirmed with you on WhatsApp before we pack — no surprises at the door.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ORDER -->
-  <section class="order" id="order">
-    <div class="wrap order-grid">
-      <div>
-        <h2>Ready to stock up?</h2>
-        <p class="order-copy">Fill in what you need and it opens straight into WhatsApp, pre-written — or just call us if that's quicker for you.</p>
-        <div class="contact-list">
-          <a href="tel:+2348082078462">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 3a2 2 0 01-.4 2.1L8 10.3a16 16 0 006 6l1.5-1.4a2 2 0 012.1-.4c1 .4 2 .6 3 .7a2 2 0 011.4 2.7z"/></svg>
-            080-8207-8462
-          </a>
-          <a href="https://instagram.com/marketking365" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-            @marketking365
-          </a>
-          <a href="#top">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            Benin City, Edo State
-          </a>
-        </div>
-      </div>
-
-      <form id="orderForm">
-        <div class="field">
-          <label for="name">Your name</label>
-          <input type="text" id="name" placeholder="e.g. Efosa Aigbe" required>
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="category">Category</label>
-            <select id="category">
-              <option>Chicken</option>
-              <option>Beef &amp; goat meat</option>
-              <option>Fish</option>
-              <option>Shrimp &amp; seafood</option>
-              <option>Turkey</option>
-              <option>Assorted &amp; offals</option>
-            </select>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#products" class="rounded-xl bg-ocean px-6 py-3 text-center font-bold">Shop Frozen Catalog</a>
+            <a target="_blank" rel="noopener" href="https://wa.me/2348082078462?text=Hello%20MarketKing365%2C%20I%20would%20like%20to%20place%20an%20order" class="rounded-xl border border-white/40 px-6 py-3 text-center font-bold">Order Fast on WhatsApp</a>
           </div>
-          <div class="field">
-            <label for="qty">Quantity</label>
-            <input type="text" id="qty" placeholder="e.g. 2 cartons">
+
+          <div class="mt-10 grid max-w-lg grid-cols-2 gap-3 text-center text-xs font-bold sm:grid-cols-4">
+            <div class="rounded-xl bg-white/10 p-3">❄️<br>Unbroken cold chain</div>
+            <div class="rounded-xl bg-white/10 p-3">⚡<br>Rapid doorstep delivery</div>
+            <div class="rounded-xl bg-white/10 p-3">💰<br>Wholesale discounts</div>
+            <div class="rounded-xl bg-white/10 p-3">🕒<br>Open 24/7, 365 days</div>
           </div>
         </div>
-        <div class="field">
-          <label for="address">Delivery address in Benin City</label>
-          <textarea id="address" placeholder="Street, area / landmark"></textarea>
+
+        <div class="relative">
+          <img class="h-[400px] w-full rounded-[2rem] object-cover shadow-2xl"
+            src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=1100&q=85"
+            alt="Fresh frozen chicken products" />
+          <div class="absolute -bottom-5 -left-3 rounded-2xl bg-white p-4 text-navy shadow-soft">
+            <p class="text-xs font-bold uppercase text-ocean">Order straight to</p>
+            <p class="text-xl font-black">WhatsApp</p>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send order on WhatsApp</button>
-        <p class="form-note">This opens WhatsApp with your order filled in — nothing is charged or sent until you press send there.</p>
-      </form>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <svg width="26" height="26" viewBox="0 0 48 48" fill="none"><rect x="3" y="3" width="42" height="42" rx="14" stroke="#FBF6EC" stroke-width="3"/><path d="M13 20 L18 14 L24 19 L30 14 L35 20 L33 27 L15 27 Z" fill="#E2661C"/></svg>
-        <span>Market King365</span>
       </div>
-      <div class="foot-links">
-        <a href="#products">Products</a>
-        <a href="#why">Why us</a>
-        <a href="https://instagram.com/marketking365" target="_blank" rel="noopener">Instagram</a>
+    </section>
+
+    <section id="products" class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+      <div class="text-center">
+        <p class="font-bold uppercase tracking-widest text-ocean">Shop the freezer</p>
+        <h2 class="mt-2 text-3xl font-black text-navy sm:text-4xl">Your favourites, frozen at their best</h2>
+        <p class="mt-4">Add what you need below — we'll confirm exact pricing and total with you on WhatsApp before anything is packed.</p>
+      </div>
+
+      <div id="filters" class="mt-9 flex flex-wrap justify-center gap-2">
+        <button data-filter="all" class="filter rounded-full bg-navy px-4 py-2 text-sm font-bold text-white">All</button>
+        <button data-filter="poultry" class="filter rounded-full bg-white px-4 py-2 text-sm font-bold shadow">Poultry (Chicken &amp; Turkey)</button>
+        <button data-filter="seafood" class="filter rounded-full bg-white px-4 py-2 text-sm font-bold shadow">Fish &amp; Seafood</button>
+        <button data-filter="meat" class="filter rounded-full bg-white px-4 py-2 text-sm font-bold shadow">Beef &amp; Offals</button>
+        <a href="#wholesale" class="rounded-full bg-white px-4 py-2 text-sm font-bold shadow">Wholesale Cartons</a>
+        <button data-filter="packaged" class="filter rounded-full bg-white px-4 py-2 text-sm font-bold shadow">Packaged Foods</button>
+      </div>
+
+      <div id="productGrid" class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+
+    <section id="wholesale" class="bg-navy py-20 text-white">
+      <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
+        <div>
+          <p class="font-bold uppercase tracking-widest text-cyan-300">For businesses</p>
+          <h2 class="mt-2 text-3xl font-black sm:text-4xl">Bulk supply for caterers, bukas &amp; hotels</h2>
+          <p class="mt-5 leading-relaxed text-slate-200">
+            If you're a party planner, event caterer, buka owner, or hotel chef anywhere in Edo State, MarketKing365 handles your bulk carton orders with routine morning delivery — so your kitchen never runs short.
+          </p>
+          <a target="_blank" rel="noopener"
+            href="https://wa.me/2348082078462?text=Hello%20MarketKing365%2C%20I%27d%20like%20to%20ask%20about%20wholesale%2Fbulk%20carton%20pricing%20for%20my%20business."
+            class="mt-7 inline-block rounded-xl bg-[#25D366] px-6 py-3 text-center font-bold">Ask About Wholesale Rates</a>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl bg-white/10 p-6"><span class="text-3xl">📦</span><h3 class="mt-3 font-extrabold">Bulk Carton Discounts</h3><p class="mt-2 text-sm text-slate-200">Better rates the more you order, confirmed per request.</p></div>
+          <div class="rounded-2xl bg-white/10 p-6"><span class="text-3xl">🌅</span><h3 class="mt-3 font-extrabold">Scheduled Morning Runs</h3><p class="mt-2 text-sm text-slate-200">Routine delivery windows for regular business customers.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="bg-ice py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2">
+        <div>
+          <p class="font-bold uppercase tracking-widest text-ocean">Why MarketKing365</p>
+          <h2 class="mt-2 text-3xl font-black text-navy sm:text-4xl">The dependable choice for your freezer</h2>
+          <p class="mt-5 leading-relaxed">
+            From family meals to large events, MarketKing365 makes premium frozen food accessible across Benin City — cold chain kept cold, priced fairly, confirmed with you before anything is packed.
+          </p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl bg-white p-6 shadow-sm"><span class="text-3xl">🧊</span><h3 class="mt-3 font-extrabold text-navy">Uninterrupted Cold Chain</h3><p class="mt-2 text-sm">Quality maintained through reliable freezing and insulated delivery.</p></div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm"><span class="text-3xl">🏷️</span><h3 class="mt-3 font-extrabold text-navy">Wholesale &amp; Retail Value</h3><p class="mt-2 text-sm">Fair prices for every order size, confirmed with you first.</p></div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm"><span class="text-3xl">📲</span><h3 class="mt-3 font-extrabold text-navy">Order on WhatsApp</h3><p class="mt-2 text-sm">No app to download — just message us your order.</p></div>
+          <div class="rounded-2xl bg-white p-6 shadow-sm"><span class="text-3xl">🚚</span><h3 class="mt-3 font-extrabold text-navy">GRA, Ihama, Airport Road, Ring Road, Uselu &amp; environs</h3><p class="mt-2 text-sm">Message us your area to confirm delivery.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="py-20 text-center">
+      <div class="mx-auto max-w-2xl px-4">
+        <p class="font-bold uppercase tracking-widest text-ocean">Loved by customers</p>
+        <h2 class="mt-2 text-3xl font-black text-navy sm:text-4xl">Quality people can count on</h2>
+
+        <div class="mt-8 rounded-3xl bg-navy p-9 text-white shadow-soft">
+          <div class="text-4xl text-amber-300">★★★★★</div>
+          <p class="mt-2 text-2xl font-black">5.0 Rating</p>
+          <hr class="my-6 border-white/20">
+          <blockquote class="text-xl italic">"Very affordable and reliable 👌"</blockquote>
+          <p class="mt-4 font-bold text-cyan-200">— Ibrahim Mark</p>
+        </div>
+
+        <a class="mt-8 inline-block rounded-xl border-2 border-navy px-6 py-3 font-bold text-navy"
+          target="_blank" rel="noopener"
+          href="https://www.google.com/maps/search/?api=1&query=MarketKing365+46+Gapiona+Ave+GRA+Benin+City">
+          Leave us a review on Google →
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-slate-100 py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="mb-8 text-center">
+          <p class="font-bold uppercase tracking-widest text-ocean">Visit or call us</p>
+          <h2 class="mt-2 text-3xl font-black text-navy sm:text-4xl">We're always close by</h2>
+          <p class="mt-3 text-sm">Delivering across GRA, Ihama, Airport Road, Ring Road, Uselu and environs.</p>
+        </div>
+
+        <div class="grid overflow-hidden rounded-3xl bg-white shadow-soft lg:grid-cols-2">
+          <iframe class="h-80 w-full border-0 lg:h-full" loading="lazy"
+            title="MarketKing365 location"
+            src="https://www.google.com/maps?q=46%20Gapiona%20Ave%2C%20off%20Oko%20Central%20Road%2C%20GRA%2C%20Benin%20City&output=embed"></iframe>
+
+          <div class="p-8 sm:p-10">
+            <span class="rounded-full bg-emerald-50 px-3 py-1 text-sm font-bold text-go">🟢 Open 24 Hours Daily</span>
+            <h3 class="mt-4 text-2xl font-black text-navy">MarketKing365, Benin City</h3>
+            <address class="mt-3 not-italic leading-relaxed">
+              46 Gapiona Ave, off Oko Central Road,<br>
+              GRA, Benin City 300251, Edo State, Nigeria
+            </address>
+
+            <div class="mt-7 grid gap-3">
+              <a class="rounded-xl bg-navy p-3 text-center font-bold text-white" href="tel:08082078462">📞 Call 0808 207 8462</a>
+              <a class="rounded-xl bg-[#25D366] p-3 text-center font-bold text-white" target="_blank" rel="noopener"
+                href="https://wa.me/2348082078462?text=Hello%20MarketKing365%2C%20I%20would%20like%20to%20place%20an%20order">
+                WhatsApp us instantly
+              </a>
+              <a class="rounded-xl border p-3 text-center font-bold text-navy" target="_blank" rel="noopener"
+                href="https://www.google.com/maps/search/?api=1&query=MarketKing365+46+Gapiona+Ave+GRA+Benin+City">
+                Get Directions on Google Maps ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-navy text-slate-300">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
+      <div>
+        <p class="text-2xl font-black text-white">MarketKing<span class="text-cyan-300">365</span></p>
+        <p class="mt-3 text-sm">46 Gapiona Ave, off Oko Central Road, GRA, Benin City 300251, Edo State, Nigeria</p>
+        <p class="mt-1 text-sm">📞 0808 207 8462</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-white">Quick Links</h3>
+        <div class="mt-3 flex flex-col gap-2 text-sm"><a href="#products">Catalog</a><a href="#wholesale">Wholesale</a><a href="#contact">Contact</a></div>
+      </div>
+      <div>
+        <h3 class="font-bold text-white">Payment &amp; Late-Night Orders</h3>
+        <p class="mt-3 text-sm">Bank transfer, POS or cash on delivery — confirmed with you when you order.</p>
+        <p class="mt-2 text-sm">Ordering at 2am? We're genuinely open — message us anytime.</p>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© <span id="year"></span> Market King365 — No. 1 Frozen Food Store in Benin City</span>
-      <span>080-8207-8462</span>
-    </div>
-  </div>
-</footer>
+    <div class="border-t border-white/10 py-5 text-center text-xs">© <span id="year"></span> MarketKing365. All rights reserved.</div>
+  </footer>
 
-<a class="wa-float" href="https://wa.me/2348082078462" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 32 32" fill="#fff"><path d="M16 2C8.3 2 2 8.3 2 16c0 2.7.7 5.2 2 7.4L2 30l6.8-2c2.1 1.1 4.6 1.8 7.2 1.8 7.7 0 14-6.3 14-14S23.7 2 16 2zm0 25.4c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4 1.1 1.1-3.9-.3-.5C4.6 20.1 4 18.1 4 16 4 9.4 9.4 4 16 4s12 5.4 12 12-5.4 11.4-12 11.4zm6.6-8.6c-.4-.2-2.1-1-2.4-1.2s-.6-.2-.8.2-.9 1.2-1 1.4c-.2.2-.4.2-.7.1-2-1-3.4-1.8-4.7-4.1-.4-.6.4-.6 1-1.9.1-.2.1-.4 0-.6s-.8-1.9-1-2.6c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.1.8.3 1.5.5 2 .7.8.3 1.6.2 2.2.1.7-.1 2.1-.9 2.4-1.7.3-.8.3-1.5.2-1.7-.1-.1-.3-.2-.7-.4z"/></svg>
-</a>
+  <script>
+    const products = [
+      ["Premium Frozen Chicken","poultry","Whole, cuts & cartons available",8500,"https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=800&q=80"],
+      ["Frozen Turkey","poultry","Wings, laps & assorted cuts",10500,"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80"],
+      ["Croaker & Titus Fish","seafood","Sizes for every kitchen and event",7000,"https://images.unsplash.com/photo-1534482421-64566f976cfa?auto=format&fit=crop&w=800&q=80"],
+      ["Premium Prawns","seafood","Clean, frozen & ready to cook",12000,"https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=800&q=80"],
+      ["Choice Frozen Beef","meat","Portions and wholesale cartons",9000,"https://images.unsplash.com/photo-1603048297172-c92544798d5b?auto=format&fit=crop&w=800&q=80"],
+      ["French Fries & Sausages","packaged","Family packs and catering cartons",4500,"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80"],
+      ["Frozen Vegetables","packaged","Mixed vegetables and cooking essentials",3500,"https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80"]
+    ];
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+    const nairaFmt = n => `₦${n.toLocaleString("en-NG")}`;
 
-  document.getElementById('menuBtn').addEventListener('click', function(){
-    document.getElementById('navLinks').classList.toggle('open');
-  });
+    const categoryLabel = { poultry:"Poultry", seafood:"Fish & Seafood", meat:"Beef & Offals", wholesale:"Wholesale Carton", packaged:"Packaged Foods" };
+    const grid = document.querySelector("#productGrid");
+    const productByName = Object.fromEntries(products.map(p => [p[0], p]));
+    const cart = {}; // name -> qty
 
-  document.getElementById('orderForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    var name = document.getElementById('name').value.trim();
-    var category = document.getElementById('category').value;
-    var qty = document.getElementById('qty').value.trim();
-    var address = document.getElementById('address').value.trim();
+    function cartTotalItems() {
+      return Object.values(cart).reduce((a,b) => a+b, 0);
+    }
 
-    var msg = "Hello Market King365, I'd like to place an order.\n" +
-      "Name: " + (name || '-') + "\n" +
-      "Item: " + category + "\n" +
-      "Quantity: " + (qty || '-') + "\n" +
-      "Delivery address: " + (address || '-');
+    function cartTotalPrice() {
+      return Object.entries(cart).reduce((sum, [name, qty]) => sum + (productByName[name][3] * qty), 0);
+    }
 
-    var url = "https://wa.me/2348082078462?text=" + encodeURIComponent(msg);
-    window.open(url, "_blank");
-  });
-</script>
+    function updateCartUI() {
+      const count = cartTotalItems();
+      const cartCount = document.querySelector("#cartCount");
+      const orderBar = document.querySelector("#orderBar");
+      const orderBarCount = document.querySelector("#orderBarCount");
+      const orderBarTotal = document.querySelector("#orderBarTotal");
+      if (count > 0) {
+        cartCount.textContent = count;
+        cartCount.classList.remove("hidden");
+        cartCount.classList.add("grid");
+        orderBar.classList.remove("hidden");
+        orderBarCount.textContent = count;
+        orderBarTotal.textContent = nairaFmt(cartTotalPrice());
+      } else {
+        cartCount.classList.add("hidden");
+        orderBar.classList.add("hidden");
+      }
+      document.querySelectorAll("[data-qty-for]").forEach(el => {
+        const name = el.dataset.qtyFor;
+        el.textContent = cart[name] || 0;
+      });
+    }
 
+    function changeQty(name, delta) {
+      cart[name] = Math.max(0, (cart[name] || 0) + delta);
+      if (cart[name] === 0) delete cart[name];
+      updateCartUI();
+    }
+
+    function buildWhatsAppMessage() {
+      const lines = Object.entries(cart).map(([name, qty]) => `- ${qty}x ${name} (${nairaFmt(productByName[name][3])} each)`);
+      const msg = `Hello MarketKing365! I would like to order:\n${lines.join("\n")}\n\nEstimated Total: ${nairaFmt(cartTotalPrice())}\nPlease confirm exact sizes and final total.\nDelivery Address: `;
+      return `https://wa.me/2348082078462?text=${encodeURIComponent(msg)}`;
+    }
+
+    function render(filter = "all") {
+      grid.innerHTML = products.filter(p => filter === "all" || p[1] === filter).map(([name, category, desc, price, image]) => `
+        <article class="card overflow-hidden rounded-2xl bg-white shadow-soft">
+          <img class="h-52 w-full object-cover" src="${image}" alt="${name}" onerror="this.style.display='none'">
+          <div class="p-5">
+            <p class="text-xs font-bold uppercase tracking-widest text-ocean">${categoryLabel[category] || category}</p>
+            <h3 class="mt-1 text-xl font-extrabold text-navy">${name}</h3>
+            <p class="mt-2 text-sm">${desc}</p>
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <span class="text-lg font-black text-orange-500">From ${nairaFmt(price)}</span>
+              <button class="rounded-lg bg-[#25D366] px-3 py-2 text-sm font-bold text-white" onclick="changeQty('${name.replace(/'/g,"\\'")}', 1)">Order</button>
+            </div>
+            <div class="mt-4 flex items-center justify-center gap-4 rounded-xl bg-slate-50 py-2">
+              <button class="stepper-btn rounded-lg bg-white font-black text-navy shadow" onclick="changeQty('${name.replace(/'/g,"\\'")}', -1)">−</button>
+              <span data-qty-for="${name}" class="w-6 text-center font-bold">0</span>
+              <button class="stepper-btn rounded-lg bg-navy font-black text-white shadow" onclick="changeQty('${name.replace(/'/g,"\\'")}', 1)">+</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+      updateCartUI();
+    }
+
+    render();
+
+    document.querySelectorAll(".filter").forEach(button => button.addEventListener("click", () => {
+      document.querySelectorAll(".filter").forEach(b => b.className = "filter rounded-full bg-white px-4 py-2 text-sm font-bold shadow");
+      button.className = "filter rounded-full bg-navy px-4 py-2 text-sm font-bold text-white";
+      render(button.dataset.filter);
+    }));
+
+    document.querySelector("#checkoutBtn").addEventListener("click", () => window.open(buildWhatsAppMessage(), "_blank"));
+    document.querySelector("#cartBtn").addEventListener("click", () => document.querySelector("#products").scrollIntoView({behavior:"smooth"}));
+
+    document.querySelector("#menuBtn").addEventListener("click", () => document.querySelector("#mobileMenu").classList.toggle("hidden"));
+    document.querySelectorAll("#mobileMenu a").forEach(a => a.addEventListener("click", () => document.querySelector("#mobileMenu").classList.add("hidden")));
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
